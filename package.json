@@ -1,0 +1,20 @@
+{
+    "name": "social-auth-unifier-monorepo",
+    "private": true,
+    "scripts": {
+        "build": "turbo run build",
+        "dev": "turbo run dev",
+        "lint": "turbo run lint",
+        "test": "turbo run test",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    },
+    "devDependencies": {
+        "turbo": "^1.10.0",
+        "prettier": "^3.0.0"
+    },
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ],
+    "version": "0.0.1"
+}
