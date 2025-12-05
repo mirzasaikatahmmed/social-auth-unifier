@@ -1,6 +1,11 @@
 {
     "name": "social-auth-unifier-monorepo",
     "private": true,
+    "author": {
+        "name": "Mirza Saikat Ahmmed",
+        "email": "contact@saikat.com.bd",
+        "url": "https://saikat.com.bd"
+    },
     "scripts": {
         "build": "turbo run build",
         "dev": "turbo run dev",
