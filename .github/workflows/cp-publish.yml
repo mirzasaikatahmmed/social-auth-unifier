@@ -32,7 +32,7 @@ jobs:
       - name: Publish
         if: github.ref == 'refs/heads/main' && success()
         run: |
-          cd packages/nestjs-google-oauth
+          cd packages/social-auth-unifier
           npm publish --access public || echo "Version already exists, skipping publish"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
