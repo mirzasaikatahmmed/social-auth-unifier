@@ -1,6 +1,6 @@
 # social-auth-unifier
 
-[Passport](http://passportjs.org/) strategies for authenticating with Google, Twitter, Facebook, LinkedIn, and GitHub using OAuth 2.0, all unifed in a single NestJS module.
+[Passport](http://passportjs.org/) strategies for authenticating with Google, Twitter, Facebook, LinkedIn, GitHub, and Apple using OAuth 2.0, all unifed in a single NestJS module.
 
 This module lets you authenticate using multiple social providers in your Node.js applications. By plugging into [Passport](http://passportjs.org/), social authentication can be easily and unobtrusively integrated into any application or framework that supports [Connect](http://www.senchalabs.org/connect/)-style middleware, including [Express](http://expressjs.com/) and [NestJS](https://nestjs.com/).
 
@@ -14,7 +14,7 @@ $ npm install social-auth-unifier
 
 #### Configure Strategy
 
-The unified strategy authenticates users using a client ID and client secret, which are obtained by creating an application at the respective developer portals (e.g., [Google Cloud Console](https://console.cloud.google.com/), [Twitter Developer Portal](https://developer.twitter.com/)). The client ID and secret are supplied as environment variables.
+The unified strategy authenticates users using a client ID and client secret, which are obtained by creating an application at the respective developer portals (e.g., [Google Cloud Console](https://console.cloud.google.com/), [Twitter Developer Portal](https://developer.twitter.com/), [Apple Developer](https://developer.apple.com/)). The client ID and secret are supplied as environment variables.
 
 ```typescript
 import { Module } from '@nestjs/common';
@@ -63,6 +63,16 @@ GITHUB_AUTH=true
 GITHUB_CLIENT_ID=your-github-client-id
 GITHUB_CLIENT_SECRET=your-github-client-secret
 GITHUB_CALLBACK_URL=http://localhost:3000/auth/github/redirect
+
+# Apple
+# APPLE_CLIENT_ID is your Services ID. Provide either APPLE_PRIVATE_KEY or APPLE_PRIVATE_KEY_PATH.
+APPLE_AUTH=true
+APPLE_CLIENT_ID=your-apple-services-id
+APPLE_TEAM_ID=your-apple-team-id
+APPLE_KEY_ID=your-apple-key-id
+APPLE_CALLBACK_URL=https://your-domain.com/auth/apple/redirect
+APPLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nYOUR_KEY\n-----END PRIVATE KEY-----"
+# APPLE_PRIVATE_KEY_PATH=./secrets/AuthKey_XXXXXXXXXX.p8
 ```
 
 #### Authenticate Requests
@@ -74,12 +84,15 @@ Use the built-in routes to initiate authentication. The module automatically reg
 -   **Facebook**: `GET /auth/facebook`
 -   **LinkedIn**: `GET /auth/linkedin`
 -   **GitHub**: `GET /auth/github`
+-   **Apple**: `GET /auth/apple` (callback is `POST /auth/apple/redirect`)
 
 For example, to log in with GitHub, simply link to:
 
 ```html
 <a href="/auth/github">Login with GitHub</a>
 ```
+
+> **Apple note:** Apple only returns the user's name on the first authorization. Persist it when you first receive it. Your callback URL must be HTTPS (except for local testing via a tunnel). Ensure `express.urlencoded({ extended: true })` is enabled so Apple's `form_post` callback can be parsed.
 
 ## License
 
@@ -95,4 +108,3 @@ For example, to log in with GitHub, simply link to:
 
 -   GitHub: [https://github.com/mirzasaikatahmmed](https://github.com/mirzasaikatahmmed)
 -   Project Link: [https://github.com/mirzasaikatahmmed/social-auth-unifier](https://github.com/mirzasaikatahmmed/social-auth-unifier)
-

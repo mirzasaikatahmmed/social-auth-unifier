@@ -1,7 +1,7 @@
 {
     "name": "social-auth-unifier",
     "version": "0.0.2",
-    "description": "Unified Social Auth Package for Google, Twitter, Facebook, LinkedIn, and GitHub",
+    "description": "Unified Social Auth Package for Google, Twitter, Facebook, LinkedIn, GitHub, and Apple",
     "author": {
         "name": "Mirza Saikat Ahmmed",
         "email": "contact@saikat.com.bd",
@@ -53,6 +53,7 @@
         "dotenv": "^16.0.0",
         "express-session": "^1.17.0",
         "passport": "^0.7.0",
+        "passport-apple": "^2.0.2",
         "passport-facebook": "^3.0.0",
         "passport-github2": "^0.1.12",
         "passport-google-oauth20": "^2.0.0",
@@ -62,14 +63,15 @@
     },
     "devDependencies": {
         "@types/express-session": "^1.17.0",
+        "@types/jest": "^29.5.1",
         "@types/node": "^20.0.0",
+        "@types/passport-apple": "^2.0.3",
         "@types/passport-facebook": "^3.0.4",
         "@types/passport-github2": "^1.2.9",
         "@types/passport-google-oauth20": "^2.0.0",
         "@types/passport-linkedin-oauth2": "^1.5.6",
-        "typescript": "^5.0.0",
         "jest": "^29.5.0",
         "ts-jest": "^29.1.0",
-        "@types/jest": "^29.5.1"
+        "typescript": "^5.0.0"
     }
 }

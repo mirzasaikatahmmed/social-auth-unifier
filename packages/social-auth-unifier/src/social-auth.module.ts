@@ -19,6 +19,9 @@ import { LinkedinOauthController } from './linkedin/linkedin-oauth.controller';
 import { GithubOauthStrategy } from './github/github-oauth.strategy';
 import { GithubOauthController } from './github/github-oauth.controller';
 
+import { AppleOauthStrategy } from './apple/apple-oauth.strategy';
+import { AppleOauthController } from './apple/apple-oauth.controller';
+
 @Global()
 @Module({})
 export class SocialAuthModule {
@@ -127,6 +130,28 @@ export class SocialAuthModule {
                 });
             } else {
                 this.logger.warn('GitHub Auth enabled but missing configuration. Skipping.');
+            }
+        }
+
+        // Apple Auth
+        if (process.env.APPLE_AUTH === 'true') {
+            const clientId = process.env.APPLE_CLIENT_ID;
+            const teamId = process.env.APPLE_TEAM_ID;
+            const keyId = process.env.APPLE_KEY_ID;
+            const callbackUrl = process.env.APPLE_CALLBACK_URL;
+            const privateKey = process.env.APPLE_PRIVATE_KEY;
+            const privateKeyPath = process.env.APPLE_PRIVATE_KEY_PATH;
+
+            if (clientId && teamId && keyId && callbackUrl && (privateKey || privateKeyPath)) {
+                this.logger.log('Apple Auth Enabled');
+                providers.push(AppleOauthStrategy);
+                controllers.push(AppleOauthController);
+                providers.push({
+                    provide: 'APPLE_OAUTH_OPTIONS',
+                    useValue: { clientId, teamId, keyId, callbackUrl, privateKey, privateKeyPath },
+                });
+            } else {
+                this.logger.warn('Apple Auth enabled but missing configuration. Skipping.');
             }
         }
 

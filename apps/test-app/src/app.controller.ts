@@ -13,6 +13,7 @@ export class AppController {
         <li><a href="/auth/facebook">Login with Facebook</a></li>
         <li><a href="/auth/linkedin">Login with LinkedIn</a></li>
         <li><a href="/auth/github">Login with GitHub</a></li>
+        <li><a href="/auth/apple">Login with Apple</a></li>
       </ul>
     `;
   }

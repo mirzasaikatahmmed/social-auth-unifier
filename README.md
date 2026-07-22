@@ -7,7 +7,7 @@ A powerful and unified social authentication solution for Node.js and NestJS app
 This project is managed as a monorepo using [TurboRepo](https://turbo.build/repo).
 
 *   **`packages/`**: Contains the core libraries.
-    *   [`social-auth-unifier`](./packages/social-auth-unifier/README.md): The main package providing unified social authentication strategies (Google, Twitter, Facebook, LinkedIn, GitHub) for NestJS.
+    *   [`social-auth-unifier`](./packages/social-auth-unifier/README.md): The main package providing unified social authentication strategies (Google, Twitter, Facebook, LinkedIn, GitHub, Apple) for NestJS.
 *   **`apps/`**: Contains example applications and services.
     *   `test-app`: A test application demonstrating the usage of `social-auth-unifier`.
 
@@ -15,7 +15,7 @@ This project is managed as a monorepo using [TurboRepo](https://turbo.build/repo
 
 *   **Unified Interface**: Consistent API for multiple OAuth providers.
 *   **NestJS Integration**: Seamless integration with NestJS modules and guards.
-*   **Multiple Strategies**: Supports Google, Twitter, Facebook, LinkedIn, and GitHub out of the box.
+*   **Multiple Strategies**: Supports Google, Twitter, Facebook, LinkedIn, GitHub, and Apple out of the box.
 *   **Extensible**: logic is built on top of Passport.js.
 
 ## Installation
