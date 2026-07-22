@@ -1,6 +1,6 @@
 {
     "name": "social-auth-unifier",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Unified Social Auth Package for Google, Twitter, Facebook, LinkedIn, GitHub, and Apple",
     "author": {
         "name": "Mirza Saikat Ahmmed",
